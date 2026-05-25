@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emda-sil <emda-sil@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/21 12:27:17 by emda-sil          #+#    #+#             */
-/*   Updated: 2026/05/21 13:48:50 by emda-sil         ###   ########.fr       */
+/*   Created: 2026/05/25 10:43:25 by emda-sil          #+#    #+#             */
+/*   Updated: 2026/05/25 10:43:42 by emda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 size_t	ft_strlen(const char *str)
 {

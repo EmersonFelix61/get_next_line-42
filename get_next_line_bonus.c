@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emda-sil <emda-sil@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/22 13:30:57 by emda-sil          #+#    #+#             */
-/*   Updated: 2026/05/25 10:46:23 by emda-sil         ###   ########.fr       */
+/*   Created: 2026/05/25 10:38:26 by emda-sil          #+#    #+#             */
+/*   Updated: 2026/05/25 10:43:50 by emda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 static char	*read_stash(int fd, char *stash)
 {
@@ -87,21 +87,21 @@ static char	*clean_stash(char *stash)
 
 char	*get_next_line(int fd)
 {
-	static char	*stash;
+	static char	*stash[1024];
 	char		*line;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
-	stash = read_stash(fd, stash);
-	if (!stash)
+	stash[fd] = read_stash(fd, stash[fd]);
+	if (!stash[fd])
 		return (NULL);
-	line = get_line(stash);
+	line = get_line(stash[fd]);
 	if (!line)
 	{
-		free(stash);
-		stash = NULL;
+		free(stash[fd]);
+		stash[fd] = NULL;
 		return (NULL);
 	}
-	stash = clean_stash(stash);
+	stash[fd] = clean_stash(stash[fd]);
 	return (line);
 }
